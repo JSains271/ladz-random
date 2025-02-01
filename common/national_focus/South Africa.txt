@@ -1,0 +1,107 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = south_african_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SAF
+		}
+	}
+	
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1000 }
+
+#	focus = {
+#		id = SAF_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		relative_position_id = 
+#
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+	
+	###############################################
+	#### SUSPEND THE CONSTITUTION (HISTORICAL) ####
+	###############################################
+	focus = {
+		id = SAF_abandon_westminster
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		mutually_exclusive = { focus = SAF_support_the_policy_of_appeasement }
+		x = 7
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				NOT = { ENG = { has_government = democratic } }
+				factor = 10
+			}
+			modifier = {
+				NOT = { has_government = democratic }
+				factor = 100
+			}
+			modifier = {	#makes it significantly more likely if player boosts non-democratic
+				democratic < 0.5
+				factor = 20
+			}
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_TFV_AUTONOMY}
+
+		completion_reward = {
+			add_timed_idea = { idea = SAF_abandon_westminster days = 1095 }
+		}
+	}
+	
+}
