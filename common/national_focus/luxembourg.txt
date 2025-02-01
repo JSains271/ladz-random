@@ -64,7 +64,7 @@ focus_tree = {
 	focus = {
 		id = LUX_suspend_the_constitution
 		icon = GFX_focus_LUX_suspend_constitution_of_latvia
-		x = 34
+		x = 0
 		y = 0
 
 		cost = 2
@@ -133,7 +133,7 @@ focus_tree = {
 	focus = {
 		id = LUX_autoroutes
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 34
+		x = 0
 		y = 1
 		
 		prerequisite = { focus = LUX_suspend_the_constitution }
