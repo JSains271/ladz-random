@@ -62,49 +62,19 @@ focus_tree = {
 	#### SUSPEND THE CONSTITUTION (HISTORICAL) ####
 	###############################################
 	focus = {
-		id = LUX_suspend_the_constitution
-		icon = GFX_focus_LUX_suspend_constitution_of_latvia
+		id = LUX_purge_the_elits
+		icon = GFX_focus_LUX_purge_the_elits
 		x = 0
 		y = 0
 
-		cost = 2
+		cost = 5
 
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = BALTIC_restore_workers_republic
-				}
-			}
-		}
-
-		offset = {
-			x = -12
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = LUX_suspend_the_constitution
-			}
-		}
+		mutually_exclusive = {focus = LUX_opposition_coup }
 
 		ai_will_do = {
 			factor = 1
 		}
 
-		available = {
-		}
-
-		bypass = {
-			
-		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -118,24 +88,46 @@ focus_tree = {
 				level = 1
 				instant_build = yes
 			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				mark_focus_tree_layout_dirty = yes 
+		}
+	}
+	
+	focus = {
+		id = LUX_opposition_coup
+		icon = GFX_focus_LUX_opposition_coup
+		x = 5
+		y = 0
+
+		cost = 5
+
+		mutually_exclusive = {focus = LUX_purge_the_elits}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
 			}
 		}
 	}
+	
 	focus = {
 		id = LUX_autoroutes
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 0
 		y = 1
 		
-		prerequisite = { focus = LUX_suspend_the_constitution }
+		prerequisite = { focus = LUX_purge_the_elits }
 		cost = 10
 
 		ai_will_do = {

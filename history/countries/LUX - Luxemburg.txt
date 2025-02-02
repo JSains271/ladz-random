@@ -50,14 +50,15 @@ recruit_character = LUX_felix_of_luxembourg
 
 set_politics = {
 	ruling_party = communism
-	last_election = "1934.6.3"
-	election_frequency = 36
 	elections_allowed = no
 }
 
 set_popularities = {
 	democratic = 10
 	neutrality = 15
-	fascism = 0
 	communism = 65
+}
+
+add_ideas = {
+	communist_rebellion
 }

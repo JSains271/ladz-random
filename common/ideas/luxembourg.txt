@@ -1,0 +1,20 @@
+ideas = {
+
+	country = {
+		communist_rebellion = {
+			
+			allowed = {
+				original_tag = LUX
+				has_government = communism
+			}
+
+			modifier = {
+				stability_factor = -0.15
+			}
+			
+			removal_cost = -1
+
+		}
+
+	}
+}
