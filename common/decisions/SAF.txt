@@ -1,0 +1,164 @@
+SAF_african_conquest {
+	SAF_demand_rhodesia = {
+		priority = 40
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 10
+		}
+
+		allowed = {
+			original_tag = SAF
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_completed_focus = SAF_northward_expansion_diplo
+			542 = {
+				is_controlled_by = ENG
+			}
+			545 = {
+				is_controlled_by = ENG
+			}
+			771 = {
+				is_controlled_by = ENG
+			}
+			981 = {
+				is_controlled_by = ENG
+			}
+			770 = {
+				is_controlled_by = ENG
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			SAF = {
+				transfer_state = 542
+				transfer_state = 545
+				transfer_state = 770
+				transfer_state = 771
+				transfer_state = 981
+			}
+		}
+	}
+	
+		SAF_unify_africa = {
+		priority = 40
+
+		icon = generic_form_nation
+
+		ai_will_do = {
+			base = 10
+		}
+
+		allowed = {
+			original_tag = SAF
+		}
+
+		available = {
+			if{
+				custom_trigger_tooltip = {
+					tooltip = form_country_rhodesia_required_states_tt
+					controls_state = 542
+					controls_state = 545
+					controls_state = 981
+					controls_state = 771					
+					controls_state = 770
+				}
+				custom_trigger_tooltip = {
+					tooltip = form_country_congo_required_states_tt
+					controls_state = 539
+					controls_state = 772
+					controls_state = 888
+					controls_state = 889
+					controls_state = 890
+					controls_state = 768
+					controls_state = 769
+					controls_state = 295
+					controls_state = 538
+					controls_state = 718
+				}
+				custom_trigger_tooltip = {
+					tooltip = form_country_tanzan_kenya_required_states_tt
+					controls_state = 546
+					controls_state = 548
+					controls_state = 903
+					controls_state = 904
+					controls_state = 905
+					controls_state = 547
+				}
+				custom_trigger_tooltip = {
+					tooltip = form_country_southern_portugese_required_states_tt
+					controls_state = 796
+					controls_state = 540
+					controls_state = 891
+					controls_state = 892
+					controls_state = 897
+					controls_state = 896
+					controls_state = 544
+				}
+			}
+		}
+
+		visible = {
+			always = yes
+		}
+
+		cost = 50
+
+		complete_effect = {
+			# rhodesia
+			custom_effect_tooltip = form_country_rhodesia_coring_states_tt
+			hidden_effect = {
+				542 = { add_core_of = ROOT }
+				543 = { add_core_of = ROOT }
+				981 = { add_core_of = ROOT }
+				770 = { add_core_of = ROOT }
+				771 = { add_core_of = ROOT }
+			}
+			
+			# congo
+			custom_effect_tooltip = form_country_congo_coring_states_tt
+			hidden_effect = {
+				539 = { add_core_of = ROOT }
+				772 = { add_core_of = ROOT }
+				888 = { add_core_of = ROOT }
+				889 = { add_core_of = ROOT }
+				890 = { add_core_of = ROOT }
+				768 = { add_core_of = ROOT }
+				769 = { add_core_of = ROOT }
+				295 = { add_core_of = ROOT }
+				538 = { add_core_of = ROOT }
+				718 = { add_core_of = ROOT }
+			}
+			
+			# tanzan kenya
+			custom_effect_tooltip = form_country_tanzan_kenya_coring_states_tt
+			hidden_effect = {
+				546 = { add_core_of = ROOT }
+				548 = { add_core_of = ROOT }
+				903 = { add_core_of = ROOT }
+				904 = { add_core_of = ROOT }
+				905 = { add_core_of = ROOT }
+				547 = { add_core_of = ROOT }
+			}
+			
+			# southern portugal
+			custom_effect_tooltip = form_country_southern_portugese_coring_states_tt
+			hidden_effect = {
+				796 = { add_core_of = ROOT }
+				540 = { add_core_of = ROOT }
+				891 = { add_core_of = ROOT }
+				892 = { add_core_of = ROOT }
+				897 = { add_core_of = ROOT }
+				896 = { add_core_of = ROOT }
+				544 = { add_core_of = ROOT }
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+SAF_african_conquest = {
+	allowed = {
+		tag = SAF
+	}
+	priority = 25
+	picture = GFX_decision_category_pictures
+	visible = {
+		always = yes
+		
+	}
+	visible_when_empty = yes
+	scripted_gui = SAF_scripted_gui
+}

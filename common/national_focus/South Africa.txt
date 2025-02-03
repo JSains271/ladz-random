@@ -58,41 +58,24 @@ focus_tree = {
 #		}
 #	}
 	
-	###############################################
-	#### SUSPEND THE CONSTITUTION (HISTORICAL) ####
-	###############################################
 	focus = {
-		id = SAF_abandon_westminster
+		id = SAF_abandon_commonwealth
 		icon = GFX_goal_tfv_sever_ties_with_uk
-		mutually_exclusive = { focus = SAF_support_the_policy_of_appeasement }
+	#	mutually_exclusive = { focus = }
 		x = 7
 		y = 0
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 0.5
-			modifier = {
-				NOT = { ENG = { has_government = democratic } }
-				factor = 10
-			}
-			modifier = {
-				NOT = { has_government = democratic }
-				factor = 100
-			}
-			modifier = {	#makes it significantly more likely if player boosts non-democratic
-				democratic < 0.5
-				factor = 20
-			}
+
 		}
 
-		available = {
-			NOT = { has_country_flag = britain_enforced_our_loyalty }
-		}
+
 		
-		bypass = {
-
-		}
+		#bypass = {
+		#}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -100,7 +83,74 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_TFV_AUTONOMY}
 
 		completion_reward = {
-			add_timed_idea = { idea = SAF_abandon_westminster days = 1095 }
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					set_autonomy = {
+						target = SAF
+						autonomy_state = autonomy_free
+					}
+				}
+			}
+			ENG = { remove_from_faction = ROOT }
+		}
+	}
+	
+			focus = {
+		id = SAF_northward_expansion_diplo
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		mutually_exclusive = { focus = }
+		prerequisite = { focus = SAF_abandon_commonwealth }
+		x = 7
+		y = 1
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 0.5
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+
+		completion_reward = {
+			
+		}
+	}
+	
+		focus = {
+		id = SAF_expand_diamond_mines
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		mutually_exclusive = { focus = }
+
+		x = 2
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0.5
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			
 		}
 	}
 	
